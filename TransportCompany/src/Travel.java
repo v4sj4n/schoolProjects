@@ -43,7 +43,7 @@ public class Travel {
         }
         this.weightKg = WeightKg;
         this.packageCode = packageCode;
-        this.travelName = "Package " +  TravelName ;
+        this.travelName = "Package " + TravelName;
 
         System.out.printf("Created %s successfully \n", this);
 
@@ -76,11 +76,11 @@ public class Travel {
         System.out.println("Enter new \"from destination\", previous one was " + this.fromDestination);
         String newFromDestination = scanner.nextLine();
         while (newFromDestination.isEmpty() || this.fromDestination.equalsIgnoreCase(newFromDestination)) {
-            System.out.println((newFromDestination.isEmpty()) ? "From Destination can't be empty please enter it again"
-                    : "The destination you entered is the same as the one you have registered, please change it or exit by entering 0");
+            System.out.println((newFromDestination.isEmpty()) ?
+                    "From Destination can't be empty please enter it again" :
+                    "The destination you entered is the same as the one you have registered, please change it or exit by entering 0");
             newFromDestination = scanner.nextLine();
-            if (newFromDestination.equals("0"))
-                return;
+            if (newFromDestination.equals("0")) return;
         }
 
         this.fromDestination = newFromDestination;
@@ -92,11 +92,11 @@ public class Travel {
         System.out.println("Enter new \"to destination\",previous one was " + this.distanceKm);
         String newToDestination = scanner.nextLine();
         while (newToDestination.isEmpty() || this.fromDestination.equalsIgnoreCase(newToDestination)) {
-            System.out.println((newToDestination.isEmpty()) ? "To Destination can't be empty please enter it again"
-                    : "The destination you entered is the same as the one you have registered, please change it or exit by entering 0");
+            System.out.println((newToDestination.isEmpty()) ?
+                    "To Destination can't be empty please enter it again" :
+                    "The destination you entered is the same as the one you have registered, please change it or exit by entering 0");
             newToDestination = scanner.nextLine();
-            if (newToDestination.equals("0"))
-                return;
+            if (newToDestination.equals("0")) return;
 
         }
 
@@ -110,8 +110,7 @@ public class Travel {
         while (newDistanceKm < 10) {
             System.out.println("The distance should be bigger than 10, enter a bigger distance or exit by entering 0");
             newDistanceKm = Float.parseFloat(scanner.nextLine());
-            if (newDistanceKm == 0)
-                return;
+            if (newDistanceKm == 0) return;
 
         }
         this.distanceKm = newDistanceKm;
@@ -122,12 +121,11 @@ public class Travel {
         System.out.println("Enter new \"weight kg\", previous one was " + this.weightKg);
         float newWeightKg = Float.parseFloat(scanner.nextLine());
         while (newWeightKg < 0 || newWeightKg > 2000) {
-            System.out.println((newWeightKg < 0)
-                    ? "The weight should be bigger than 0, please enter a bigger one or type 0 again to exit"
-                    : "The weight should be smaller than 2000kg, please enter a smaller weight or type 0 to exit");
+            System.out.println((newWeightKg < 0) ?
+                    "The weight should be bigger than 0, please enter a bigger one or type 0 again to exit" :
+                    "The weight should be smaller than 2000kg, please enter a smaller weight or type 0 to exit");
             newWeightKg = Float.parseFloat(scanner.nextLine());
-            if (newWeightKg == 0)
-                return;
+            if (newWeightKg == 0) return;
 
         }
         this.weightKg = newWeightKg;

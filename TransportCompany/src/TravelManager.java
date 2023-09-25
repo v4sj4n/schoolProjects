@@ -30,10 +30,10 @@ public class TravelManager {
                 }
 
                 case 2 -> {
-                    if (travels.isEmpty()) {
+                    if (travels.isEmpty())
                         System.out.println("Can't do actions with no travel packages, please add one!");
 
-                    } else {
+                    else {
                         System.out.println("Pick one of the packages below or type 0 to exit");
                         for (Travel t : travels) System.out.println(t);
                         short packageIndex = Short.parseShort(scanner.nextLine());
@@ -60,9 +60,9 @@ public class TravelManager {
                 }
 
                 case 3 -> {
-                    if (travels.isEmpty()) {
+                    if (travels.isEmpty())
                         System.out.println("Can't do deletion with no travel packages, please add one!");
-                    } else {
+                    else {
                         for (Travel t : travels) System.out.println(t);
                         System.out.println("Pick one of the packages to remove, or type 0 to exit");
                         short packageIndex = Short.parseShort(scanner.nextLine());
@@ -102,11 +102,11 @@ public class TravelManager {
             userChoice = sc.nextLine();
             if (userChoice.equalsIgnoreCase("0")) return;
         }
-        if (userChoice.equalsIgnoreCase("get")) {
+        if (userChoice.equalsIgnoreCase("get"))
             System.out.println(t.getFromDestination());
-        } else {
+        else
             t.setFromDestination();
-        }
+
     }
 
     public void toDestinationHandler(Travel t) {
@@ -118,11 +118,11 @@ public class TravelManager {
             userChoice = sc.nextLine();
             if (userChoice.equalsIgnoreCase("0")) return;
         }
-        if (userChoice.equalsIgnoreCase("get")) {
+        if (userChoice.equalsIgnoreCase("get"))
             System.out.println(t.getToDestination());
-        } else {
+        else
             t.setToDestination();
-        }
+
 
     }
 
@@ -135,11 +135,11 @@ public class TravelManager {
             userChoice = sc.nextLine();
             if (userChoice.equalsIgnoreCase("0")) return;
         }
-        if (userChoice.equalsIgnoreCase("get")) {
+        if (userChoice.equalsIgnoreCase("get"))
             System.out.println(t.getDistanceKm());
-        } else {
+        else
             t.setDistanceKm();
-        }
+
 
     }
 
@@ -152,11 +152,11 @@ public class TravelManager {
             userChoice = sc.nextLine();
             if (userChoice.equalsIgnoreCase("0")) return;
         }
-        if (userChoice.equalsIgnoreCase("get")) {
+        if (userChoice.equalsIgnoreCase("get"))
             System.out.println(t.getWeightKg());
-        } else {
+        else
             t.setWeightKg();
-        }
+
     }
 
     private String codeGenerator() {
@@ -167,13 +167,13 @@ public class TravelManager {
         StringBuilder code = new StringBuilder();
 
         for (int i = 0; i < 10; i++) {
-            if (i % 3 == 0) {
+            if (i % 3 == 0)
                 code.append(chars.charAt(random.nextInt(chars.length())));
-            } else if (i % 3 == 1) {
+            else if (i % 3 == 1)
                 code.append(nums.charAt(random.nextInt(nums.length())));
-            } else {
+            else
                 code.append(symbols.charAt(random.nextInt(symbols.length())));
-            }
+
 
         }
         return code.toString();
