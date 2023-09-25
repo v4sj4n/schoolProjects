@@ -1,8 +1,11 @@
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class TravelManager {
-    ArrayList<Travel> travels = new ArrayList<>();
+
+    private final ArrayList<Travel> travels = new ArrayList<>();
+    private final ArrayList<String> travelCodes = new ArrayList<>();
 
     public void mainProgram() {
         Scanner scanner = new Scanner(System.in);
@@ -74,12 +77,15 @@ public class TravelManager {
 
                 }
 
-                case 4 -> travels.add(new Travel((short) travels.size()));
-
-
+                case 4 -> {
+                    short packageNo = (short) (travels.size() + 1);
+                    String packageCode = codeGenerator();
+                    while (travelCodes.contains(packageCode)) packageCode = codeGenerator();
+                    travels.add(new Travel(packageNo, packageCode));
+                    travelCodes.add(packageCode);
+                }
             }
         }
-
 
     }
 
@@ -149,8 +155,29 @@ public class TravelManager {
         if (userChoice.equalsIgnoreCase("get")) {
             System.out.println(t.getWeightKg());
         } else {
-            t.setToDestination();
+            t.setWeightKg();
         }
+    }
+
+    private String codeGenerator() {
+        String chars = "abcdefghijklmnopqrstuvxyz";
+        String nums = "0123456789";
+        String symbols = "@$%&!?#";
+        Random random = new Random();
+        StringBuilder code = new StringBuilder();
+
+        for (int i = 0; i < 10; i++) {
+            if (i % 3 == 0) {
+                code.append(chars.charAt(random.nextInt(chars.length())));
+            } else if (i % 3 == 1) {
+                code.append(nums.charAt(random.nextInt(nums.length())));
+            } else {
+                code.append(symbols.charAt(random.nextInt(symbols.length())));
+            }
+
+        }
+        return code.toString();
+
     }
 
 }
